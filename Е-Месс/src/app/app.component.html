@@ -1,0 +1,39 @@
+<mat-toolbar>
+  <div class="logo">
+    <img src="assets/images/nntu.png" width="35" height="32">
+  </div>
+  <div class="text1">Е-Месс</div>
+  <ng-container *ngIf="user$ | async as user; else loginButton">
+    <button mat-button [matMenuTriggerFor]="userMenu">
+      <img
+        width="30"
+        height="30"
+        class="profile-image-toolbar"
+        [src]="'assets/images/image-placeholder.png'"
+      />
+      {{ user.nickname }}
+      <mat-icon>expand_more</mat-icon>
+    </button>
+  </ng-container>
+
+  <ng-template #loginButton>
+    <button mat-button routerLink="login">
+      <mat-icon>login</mat-icon>
+    </button>
+  </ng-template>
+</mat-toolbar>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+
+<mat-menu #userMenu="matMenu">
+  <button mat-menu-item routerLink="/profile">
+    <mat-icon>account_circle</mat-icon>
+    Профиль
+  </button>
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>logout</mat-icon>
+      Выйти
+  </button>
+</mat-menu>

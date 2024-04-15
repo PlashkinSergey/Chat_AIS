@@ -1,0 +1,51 @@
+<div class="form-container mat-elevation-z5">
+    <form [formGroup]="signUpForm" (ngSubmit)="submit()">
+        <mat-form-field>
+            <input matInput type="email" placeholder="Введите почту" formControlName="email" />
+            <mat-error *ngIf="email?.errors?.['required']">
+                Поле обязательно для заполнения
+            </mat-error>
+            <mat-error *ngIf="email?.errors?.['email']">
+                Неправильный формат почты
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" placeholder="Введите логин" formControlName="login" />
+            <mat-error *ngIf="name?.errors?.['required']">
+                Поле обязательно для заполнения
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" placeholder="Введите никнейм" formControlName="nickname" />
+            <mat-error *ngIf="name?.errors?.['required']">
+                Поле обязательно для заполнения
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Введите пароль" formControlName="password" type="password" />
+            <mat-error *ngIf="password?.errors?.['required']">
+                Поле обязательно для заполнения
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Повторите пароль" formControlName="confirmPassword" type="password" />
+            <mat-error *ngIf="confirmPassword?.errors?.['required']">
+                Поле обязательно для заполнения
+            </mat-error>
+        </mat-form-field>
+        <mat-error *ngIf="signUpForm.errors?.['passwordsDontMatch']">
+            Пароли должны совпадать
+        </mat-error>
+        <div class="center margin-top">
+            <button mat-raised-button class="buttoncss2" type="submit"
+            [style.background]="this.signUpForm.valid ? '#0D6CBD' : '#9E9E9E'">
+                Регистрация
+            </button>
+        </div>
+        <div class="center margin-top">
+            <button mat-raised-button class="buttoncss2" type="button" [routerLink]="['/login']">
+                Авторизация
+            </button>
+        </div>
+    </form>
+</div>

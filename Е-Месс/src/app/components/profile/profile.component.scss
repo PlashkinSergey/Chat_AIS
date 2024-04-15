@@ -1,0 +1,74 @@
+:host {
+  padding: 32px;
+}
+
+h1{
+  color: rgb(97, 108, 118);
+}
+
+.profile-image > img {
+  border-radius: 100%;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 100%;
+}
+
+.profile-image {
+  position: relative;
+  text-align: justify;
+  left: 0;
+  width: 15%;
+  margin: auto;
+  button{
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.profile-image > button {
+  position: absolute;
+  bottom: 10px;
+  right: 0; 
+}
+
+.my-fab
+{
+  background-color: rgb(83, 160, 255); 
+  width: 20px;
+  height: 20px;
+  line-height: 14px;
+  font-size: 14px;
+  &::ng-deep .mat-button-wrapper{
+    line-height: 14px;
+    padding: 0;
+    .mat-icon{
+      font-size: 14px;
+      padding-right: 4px;
+      padding-top: 4px;
+    }
+  }
+}
+
+.form-container {
+  max-width: 400px;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+}
+
+.form-container 
+{
+  margin-top: 5%;
+  background-color: rgb(255, 255, 255);
+}
+
+.buttoncss1{
+  width: 100%;
+  border-radius: 10px;
+  background: #0D6CBD;
+  color:rgb(255, 255, 255);
+  margin-top: 4%;
+}

@@ -1,0 +1,33 @@
+    <div class="form-container mat-elevation-z5">
+        <form [formGroup]="loginForm" (ngSubmit)="submit()">
+            <mat-form-field>
+                <input matInput placeholder="Введите почту" formControlName="email">
+                <mat-error *ngIf="email?.errors?.['required']">
+                    Поле обязательно для заполнения
+                </mat-error>
+                <mat-error *ngIf="email?.errors?.['email']">
+                    Неправильный формат почты
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Введите пароль" formControlName="password" type="password" />
+                <mat-error *ngIf="password?.errors?.['required']">
+                    Поле обязательно для заполнения
+                </mat-error>
+            </mat-form-field>
+            <div class="center margin-top">
+                <button mat-raised-button class="buttoncss1" type="submit" 
+                        [style.background]="this.loginForm.valid ? '#0D6CBD' : '#9E9E9E'">
+                    Войти
+                </button>
+            </div>
+            <div class="center margin-top">
+                <button mat-raised-button color="primary" type="submit" class="buttoncss2" routerLink="/sign-up">
+                    Регистрация
+                </button>
+            </div>
+            <div class="center margin-top">
+                <a routerLink="/reset">Забыли пароль?</a>
+            </div>
+        </form>
+    </div>
